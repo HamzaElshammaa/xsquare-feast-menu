@@ -5,34 +5,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { MapPin, Clock, Phone } from 'lucide-react';
 
-// Sample locations for the burger truck
+// Burger truck location (Cairo)
+// Note: Mapbox uses [lng, lat]
 const locations = [
   {
     id: 1,
-    name: "Downtown Square",
-    address: "123 Main Street, Downtown",
-    coordinates: [-74.006, 40.7128], // NYC coordinates as example
-    hours: "11:00 AM - 9:00 PM",
-    phone: "+1 (555) 123-4567",
-    description: "Our main location in the heart of downtown"
-  },
-  {
-    id: 2,
-    name: "Business District",
-    address: "456 Business Ave, Financial District", 
-    coordinates: [-74.008, 40.7118],
-    hours: "11:00 AM - 3:00 PM",
-    phone: "+1 (555) 123-4567",
-    description: "Perfect for your lunch break"
-  },
-  {
-    id: 3,
-    name: "University Campus",
-    address: "789 College Way, University Area",
-    coordinates: [-74.004, 40.7138],
-    hours: "12:00 PM - 10:00 PM",
-    phone: "+1 (555) 123-4567", 
-    description: "Serving hungry students daily"
+    name: "Xsquare",
+    address: "2CXR+QVP Fuel up gas station, New Cairo 1, Cairo Governorate 4731501",
+    coordinates: [31.441561237006283, 30.049242037917903] as [number, number],
+    hours: "",
+    phone: "",
+    description: "Our burger truck location in New Cairo"
   }
 ];
 
@@ -40,7 +23,7 @@ const LocationsMap = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [mapboxToken, setMapboxToken] = useState('');
-  const [needsToken, setNeedsToken] = useState(true);
+  const [needsToken, setNeedsToken] = useState(false);
 
   const initializeMap = (token: string) => {
     if (!mapContainer.current || !token) return;
@@ -50,8 +33,8 @@ const LocationsMap = () => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [-74.006, 40.7128], // Centered on first location
-      zoom: 13,
+      center: locations[0].coordinates, // Centered on truck location
+      zoom: 16,
     });
 
     // Add navigation controls
@@ -60,12 +43,14 @@ const LocationsMap = () => {
     // Add markers for each location
     locations.forEach((location) => {
       // Create popup content
+      const hoursHtml = location.hours ? `<p class="text-sm mb-1"><strong>Hours:</strong> ${location.hours}</p>` : '';
+      const phoneHtml = location.phone ? `<p class="text-sm mb-1"><strong>Phone:</strong> ${location.phone}</p>` : '';
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
         <div class="p-3">
           <h3 class="font-semibold text-lg mb-2">${location.name}</h3>
           <p class="text-sm text-gray-600 mb-2">${location.address}</p>
-          <p class="text-sm mb-1"><strong>Hours:</strong> ${location.hours}</p>
-          <p class="text-sm mb-1"><strong>Phone:</strong> ${location.phone}</p>
+          ${hoursHtml}
+          ${phoneHtml}
           <p class="text-sm">${location.description}</p>
         </div>
       `);
@@ -91,6 +76,16 @@ const LocationsMap = () => {
       initializeMap(mapboxToken.trim());
     }
   };
+
+  // Auto-load from env if available
+  useEffect(() => {
+    // Vite exposes env vars prefixed with VITE_
+    const token = import.meta.env.VITE_MAPBOX_TOKEN as string | undefined;
+    if (token && typeof token === 'string' && token.trim().length > 0) {
+      setMapboxToken(token);
+      initializeMap(token);
+    }
+  }, []);
 
   return (
     <section id="locations" className="py-20 bg-background">
@@ -121,14 +116,18 @@ const LocationsMap = () => {
                       {location.address}
                     </p>
                     <div className="space-y-2">
-                      <div className="flex items-center space-x-2 text-sm">
-                        <Clock className="w-4 h-4 text-primary" />
-                        <span>{location.hours}</span>
-                      </div>
-                      <div className="flex items-center space-x-2 text-sm">
-                        <Phone className="w-4 h-4 text-primary" />
-                        <span>{location.phone}</span>
-                      </div>
+                      {location.hours && (
+                        <div className="flex items-center space-x-2 text-sm">
+                          <Clock className="w-4 h-4 text-primary" />
+                          <span>{location.hours}</span>
+                        </div>
+                      )}
+                      {location.phone && (
+                        <div className="flex items-center space-x-2 text-sm">
+                          <Phone className="w-4 h-4 text-primary" />
+                          <span>{location.phone}</span>
+                        </div>
+                      )}
                     </div>
                     <p className="text-sm text-muted-foreground mt-2">
                       {location.description}
