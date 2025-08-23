@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
 
+
 const Footer = () => {
   const openOnlineOrdering = () => {
     window.open("https://foodics.online", "_blank");
@@ -12,11 +13,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">X²</span>
-              </div>
-              <span className="text-xl font-bold">X-Square Burgers</span>
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/0527c946-d139-4c3e-8b53-6e0ea8cb40a8.png" 
+                alt="X-Square Burgers Logo" 
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-background/80">
               Gourmet burgers made with premium ingredients, served fresh from our truck to your taste buds.

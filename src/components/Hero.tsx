@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-burger.jpg";
 
+
 const Hero = () => {
   const scrollToMenu = () => {
     const element = document.getElementById("menu");
@@ -26,11 +27,15 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <div className="mb-6">
-          <div className="w-20 h-20 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-brand">
-            <span className="text-white font-bold text-3xl">X²</span>
+          <div className="mb-6 flex justify-center">
+            <img 
+              src="/lovable-uploads/0527c946-d139-4c3e-8b53-6e0ea8cb40a8.png" 
+              alt="X-Square Burgers Logo" 
+              className="h-32 w-auto filter drop-shadow-2xl"
+            />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-            X-Square Burgers
+            Welcome to X-Square
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
             Gourmet burgers made with premium ingredients, served fresh from our truck to your taste buds
