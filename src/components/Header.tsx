@@ -19,9 +19,9 @@ const Header = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <img 
-            src="/lovable-uploads/0527c946-d139-4c3e-8b53-6e0ea8cb40a8.png" 
+            src="/lovable-uploads/XsquareLogo.png" 
             alt="X-Square Burgers Logo" 
-            className="h-10 w-auto"
+            className="h-20 w-auto"
           />
         </div>
 

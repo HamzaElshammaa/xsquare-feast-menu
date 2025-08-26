@@ -29,7 +29,7 @@ const Hero = () => {
         <div className="mb-6">
           <div className="mb-6 flex justify-center">
             <img 
-              src="/lovable-uploads/0527c946-d139-4c3e-8b53-6e0ea8cb40a8.png" 
+              src="/lovable-uploads/XsquareLogo.png" 
               alt="X-Square Burgers Logo" 
               className="h-32 w-auto filter drop-shadow-2xl"
             />

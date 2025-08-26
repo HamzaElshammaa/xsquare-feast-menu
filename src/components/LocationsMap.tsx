@@ -11,7 +11,7 @@ const locations = [
   {
     id: 1,
     name: "Xsquare",
-    address: "2CXR+QVP Fuel up gas station, New Cairo 1, Cairo Governorate 4731501",
+    address: "Fuel up gas station, New Cairo 1, Cairo Governorate",
     coordinates: [31.441561237006283, 30.049242037917903] as [number, number],
     hours: "",
     phone: "",
