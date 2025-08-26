@@ -238,21 +238,23 @@ const Menu = () => {
         </div>
 
         <Tabs defaultValue="beef-burgers" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 lg:grid-cols-7 mb-8">
-            {menuCategories.map((category) => (
-              <TabsTrigger 
-                key={category.id} 
-                value={category.id}
-                className="text-xs sm:text-sm"
-              >
-                {category.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <div className="w-full overflow-x-auto mb-8">
+            <TabsList className="inline-flex w-max min-w-full h-auto p-1 gap-1">
+              {menuCategories.map((category) => (
+                <TabsTrigger 
+                  key={category.id} 
+                  value={category.id}
+                  className="flex-shrink-0 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                >
+                  {category.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {menuCategories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {category.items.map((item) => (
                   <Card key={item.id} className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1">
                     {item.image && (
@@ -264,12 +266,12 @@ const Menu = () => {
                         />
                       </div>
                     )}
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-xl font-semibold text-foreground">{item.name}</h3>
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-1 sm:gap-0">
+                        <h3 className="text-lg sm:text-xl font-semibold text-foreground">{item.name}</h3>
                         <span className="text-lg font-bold text-primary">{item.price}</span>
                       </div>
-                      <p className="text-muted-foreground mb-3">{item.description}</p>
+                      <p className="text-sm sm:text-base text-muted-foreground mb-3">{item.description}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -277,11 +279,11 @@ const Menu = () => {
 
               {category.hasAddons && category.addons && (
                 <Card className="mt-6">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-4">
                       {category.addonTitle}
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                       {category.addons.map((addon, index) => (
                         <div key={index} className="flex justify-between items-center p-3 bg-secondary/50 rounded-lg">
                           <span className="text-sm font-medium text-foreground">{addon.name}</span>
