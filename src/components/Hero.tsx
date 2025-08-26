@@ -31,7 +31,7 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/XsquareLogo.png" 
               alt="X-Square Burgers Logo" 
-              className="h-44 md:h-48 w-auto filter drop-shadow-2xl translate-y-[25px] md:translate-y-0"
+              className="h-44 md:h-48 w-auto filter drop-shadow-2xl translate-y-[25px] md:translate-y-0 scale-[0.6] md:scale-100"
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">

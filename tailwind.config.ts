@@ -18,6 +18,27 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: [
+					'"ITC Avant Garde Pro Md"',
+					'"ITC Avant Garde Gothic Pro"',
+					'AvantGarde',
+					'"Avant Garde"',
+					'"Avenir Next"',
+					'"Helvetica Neue"',
+					'Arial',
+					'sans-serif',
+				],
+				heading: [
+					'"Pain de Mie"',
+					'"ITC Avant Garde Pro Md"',
+					'"ITC Avant Garde Gothic Pro"',
+					'AvantGarde',
+					'"Helvetica Neue"',
+					'Arial',
+					'sans-serif',
+				],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

@@ -19,9 +19,9 @@ const Header = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <img 
-            src="/lovable-uploads/XsquareLogo.png" 
+            src="/lovable-uploads/Icon-X.png" 
             alt="X-Square Burgers Logo" 
-            className="h-20 w-auto"
+            className="h-10 md:h-12 w-auto"
           />
         </div>
 
@@ -42,6 +42,7 @@ const Header = () => {
           <Button 
             variant="cta" 
             size="sm"
+            className="h-10 py-2 leading-none"
             onClick={() => window.open("https://foodics.online", "_blank")}
           >
             Order Online
@@ -78,7 +79,7 @@ const Header = () => {
             <Button 
               variant="cta" 
               size="sm" 
-              className="w-full"
+              className="w-full h-auto py-2 leading-none"
               onClick={() => window.open("https://foodics.online", "_blank")}
             >
               Order Online

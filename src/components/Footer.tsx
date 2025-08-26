@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/XsquareLogo.png" 
+                src="/lovable-uploads/Logo-H-Full Color.png" 
                 alt="X-Square Burgers Logo" 
                 className="h-8 w-auto"
               />

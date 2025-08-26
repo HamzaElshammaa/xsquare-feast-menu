@@ -113,7 +113,7 @@ const Menu = () => {
             onClick={openOnlineOrdering}
             className="min-w-[250px]"
           >
-            Order Now on Foodics
+            Order Now
           </Button>
         </div>
       </div>

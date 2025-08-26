@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Webfont declarations: place font files under /public/fonts */
+@font-face {
+  font-family: "ITC Avant Garde Pro Md";
+  src: local("ITC Avant Garde Pro Md"),
+       url("/lovable-uploads/ITCAvantGardePro-Md.woff.otf") format("opentype");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pain de Mie";
+  src: local("Pain de Mie"),
+       url("/lovable-uploads/PainDeMie.woff.otf") format("opentype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -119,6 +138,10 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+  @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2 {
+    @apply font-heading;
   }
 }
