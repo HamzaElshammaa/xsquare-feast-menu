@@ -21,7 +21,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-background/80">
-              Gourmet burgers made with premium ingredients, served fresh from our truck to your taste buds.
+              Gourmet burgers made with premium ingredients, served fresh to your taste buds.
             </p>
             <Button 
               variant="cta" 

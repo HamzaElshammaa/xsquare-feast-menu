@@ -31,14 +31,15 @@ const Hero = () => {
             <img 
               src="/lovable-uploads/XsquareLogo.png" 
               alt="X-Square Burgers Logo" 
-              className="h-32 w-auto filter drop-shadow-2xl"
+              className="h-44 md:h-48 w-auto filter drop-shadow-2xl translate-y-[25px] md:translate-y-0"
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
-            Welcome to X-Square
+            <span className="block md:inline">Welcome to</span>{" "}
+            <span className="whitespace-nowrap block md:inline">X-Square</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Gourmet burgers made with premium ingredients, served fresh from our truck to your taste buds
+            Gourmet burgers made with premium ingredients, served fresh to your taste buds
           </p>
         </div>
 
