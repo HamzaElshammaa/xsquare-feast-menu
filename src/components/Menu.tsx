@@ -5,49 +5,61 @@ import { Badge } from "@/components/ui/badge";
 import classicBurger from "@/assets/classic-burger.jpg";
 import bbqBurger from "@/assets/bbq-burger.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
+import dutchBurger from "@/assets/dutch-burger.png";
+import classicHotDog from "@/assets/classic-hotdog.png";
+import XDog from "@/assets/x-dog.png";
+import XBurger from "@/assets/XBurger.png";
+import buffaloChicken from "@/assets/buffalochicken.png";
+import lotusMilkshake from "@/assets/LotusMilkshake.png";
+import pistachioMilkshake from "@/assets/PistachioMilkshake.png";
+import vanillaIceCream from "@/assets/vanillaicecream.png";
+import seasonalIceCream from "@/assets/seasonalicecream.png";
+import iceFriedPotatoFries from "@/assets/icefriedpotatofries.png";
+
+// Format prices with EGP while avoiding double prefixing
+const formatPrice = (price: string) => {
+  if (!price) return "";
+  const trimmed = String(price).trim();
+  if (/^free$/i.test(trimmed)) return "Free";
+  if (/^EGP\s*/i.test(trimmed)) return trimmed.replace(/^EGP/i, "EGP");
+  if (/^\d+(?:[.,]\d+)?$/.test(trimmed)) return `EGP ${trimmed.replace(/,/g, "")}`;
+  return trimmed;
+};
 
 const menuCategories = [
   {
     id: "beef-burgers",
     name: "Beef Burgers",
-    hasAddons: true,
-    addonTitle: "X-tra Stuff",
     items: [
       {
         id: 1,
-        name: "Classic X-Square",
-        description: "Beef patty, cheese, lettuce, tomato, pickles, special sauce",
-        price: "$12.99",
+        name: "Classic Burger",
+        description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with American Cheese, Pickles, Onions, Ketchup, Mustard.",
+        price: "180",
         image: classicBurger
       },
       {
         id: 2,
-        name: "BBQ Bacon Deluxe",
-        description: "Beef patty, bacon, BBQ sauce, onion rings, lettuce",
-        price: "$15.99",
-        image: bbqBurger
+        name: "X-Burger",
+        description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun topped with Cheese Sauce, American Cheese, Pickles, X Sauce.",
+        price: "190",
+        image: XBurger
       },
       {
         id: 3,
-        name: "Double Trouble",
-        description: "Double beef patties, double cheese, special sauce",
-        price: "$18.99",
+        name: "X-Breaker",
+        description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun, Eggs, American Cheese, Pickles, X Sauce.",
+        price: "190",
         image: classicBurger
       },
       {
         id: 4,
-        name: "Spicy Jalapeño",
-        description: "Beef patty, jalapeños, pepper jack cheese, spicy mayo",
-        price: "$14.99",
-        image: bbqBurger
+        name: "Dutch Burger",
+        description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with Dutch Cheese, Grilled Mushroom, Mayo.",
+        price: "190",
+        image: dutchBurger
       }
-    ],
-    addons: [
-      { name: "Extra Cheese", price: "$1.50" },
-      { name: "Bacon", price: "$2.00" },
-      { name: "Avocado", price: "$2.50" },
-      { name: "Extra Patty", price: "$4.00" }
-    ]
+  ]
   },
   {
     id: "chicken-sandwiches",
@@ -55,25 +67,19 @@ const menuCategories = [
     items: [
       {
         id: 5,
-        name: "Crispy Chicken",
-        description: "Fried chicken breast, lettuce, tomato, mayo",
-        price: "$13.99",
+        name: "Fried Chicken Sandwich",
+        description: "Golden Crispy Chicken, Cheese, Mayo, Lettuce.",
+        price: "175",
         image: chickenBurger
       },
       {
         id: 6,
-        name: "Spicy Chicken",
-        description: "Spicy fried chicken, lettuce, pickles, hot sauce",
-        price: "$14.99",
-        image: chickenBurger
+        name: "Buffalo Chicken Sandwich",
+        description: "Fried Chicken Tossed with Buffalo Sauce, Hot Mayo, Ranch Sauce, Lettuce.",
+        price: "140",
+        image: buffaloChicken
       },
-      {
-        id: 7,
-        name: "Grilled Chicken Club",
-        description: "Grilled chicken, bacon, lettuce, tomato, mayo",
-        price: "$15.99",
-        image: chickenBurger
-      }
+      // ...you can add more chicken items if present in the PDF
     ]
   },
   {
@@ -82,21 +88,17 @@ const menuCategories = [
     items: [
       {
         id: 8,
-        name: "Classic Dog",
-        description: "All-beef hot dog with mustard and ketchup",
-        price: "$6.99"
+        name: "Classic Hotdog",
+        description: "Grilled Hot Dog, Mustard, Ketchup, Relish.",
+        price: "110",
+        image: classicHotDog
       },
       {
         id: 9,
-        name: "Chili Dog",
-        description: "Hot dog topped with chili and cheese",
-        price: "$8.99"
-      },
-      {
-        id: 10,
-        name: "Chicago Style",
-        description: "Hot dog with onions, relish, tomato, peppers",
-        price: "$9.99"
+        name: "X-Dog",
+        description: "Grilled Hot Dog, X Sauce, Grilled Onions, Cheese Sauce, Pickles, Jalapenos.",
+        price: "175",
+        image:XDog
       }
     ]
   },
@@ -104,32 +106,38 @@ const menuCategories = [
     id: "fries",
     name: "Fries",
     hasAddons: true,
-    addonTitle: "Dipping Sauces",
+    addonTitle: "Add a Dipping Sauce",
     items: [
       {
         id: 11,
-        name: "Regular Fries",
-        description: "Crispy golden fries",
-        price: "$4.99"
+        name: "French Fries",
+        description: "Classic Crispy Fries.",
+        price: "20"
       },
       {
         id: 12,
-        name: "Loaded Fries",
-        description: "Fries with cheese, bacon, and green onions",
-        price: "$7.99"
+        name: "Fried Sweet Potato Fries",
+        description: "Fried Sweet Potato Fries",
+        price: "40"
       },
       {
         id: 13,
-        name: "Sweet Potato Fries",
-        description: "Crispy sweet potato fries",
-        price: "$5.99"
+        name: "Cheesy Fries",
+        description: "Seasoned Fries Coated with Cheese Sauce.",
+        price: "65"
+      },
+      {
+        id: 24,
+        name: "X-Fries",
+        description: "Golden Fries Loaded with Smashed beef burger patty, Grilled Onions, Cheese Sauce, Chopped Pickles, Jalapenos, X Sauce, Hot Mayo, Ranch Sauce.",
+        price: "60"
       }
     ],
     addons: [
-      { name: "Ketchup", price: "Free" },
-      { name: "Ranch", price: "$0.50" },
-      { name: "BBQ Sauce", price: "$0.50" },
-      { name: "Cheese Sauce", price: "$1.00" }
+      { name: "Hot Mayo", price: "15" },
+      { name: "Ranch Sauce", price: "15" },
+      { name: "X-Sauce", price: "15" },
+      { name: "Buffalo Sauce", price: "15" }
     ]
   },
   {
@@ -137,56 +145,47 @@ const menuCategories = [
     name: "Milkshakes",
     items: [
       {
-        id: 14,
-        name: "Vanilla Shake",
-        description: "Creamy vanilla milkshake",
-        price: "$5.99"
-      },
-      {
         id: 15,
-        name: "Chocolate Shake",
-        description: "Rich chocolate milkshake",
-        price: "$5.99"
+        name: "Pistachio Milkshake",
+        description: "Rich pistachio milkshake.",
+        price: "120",
+        image: pistachioMilkshake
       },
       {
         id: 16,
-        name: "Strawberry Shake",
-        description: "Fresh strawberry milkshake",
-        price: "$5.99"
+        name: "Lotus Milkshake",
+        description: "Lotus-flavored milkshake.",
+        price: "115",
+        image: lotusMilkshake
       }
     ]
   },
   {
     id: "soft-ice-cream",
     name: "Soft Ice-cream",
-    hasAddons: true,
-    addonTitle: "X-tra Stuff",
     items: [
       {
         id: 17,
-        name: "Vanilla Cone",
-        description: "Classic vanilla soft serve",
-        price: "$3.99"
+        name: "Vanilla Ice-cream",
+        description: "Classic vanilla soft serve.",
+        price: "80",
+        image: vanillaIceCream
       },
       {
         id: 18,
-        name: "Chocolate Cone",
-        description: "Rich chocolate soft serve",
-        price: "$3.99"
+        name: "Seasonal Ice-cream",
+        description: "Seasonal flavor soft serve.",
+        price: "80",
+        image: seasonalIceCream
       },
       {
         id: 19,
-        name: "Twist Cone",
-        description: "Vanilla and chocolate swirl",
-        price: "$4.49"
+        name: "Ice Fried Potato Fries",
+        description: "Fried Sweet Potato Fries Topped with Cinnamon Sugar, Soft Ice Cream, Caramel Sauce.",
+        price: "125",
+        image: iceFriedPotatoFries
       }
-    ],
-    addons: [
-      { name: "Sprinkles", price: "$0.50" },
-      { name: "Chocolate Chips", price: "$0.75" },
-      { name: "Caramel Sauce", price: "$0.75" },
-      { name: "Whipped Cream", price: "$0.50" }
-    ]
+  ]
   },
   {
     id: "drinks",
@@ -194,27 +193,39 @@ const menuCategories = [
     items: [
       {
         id: 20,
-        name: "Soft Drinks",
-        description: "Coke, Pepsi, Sprite, Orange",
-        price: "$2.99"
+        name: "Soft Drink",
+        description: "Cola, Orange, Lemon-Lime, etc.",
+        price: "15"
       },
       {
         id: 21,
-        name: "Fresh Lemonade",
-        description: "House-made fresh lemonade",
-        price: "$3.99"
+        name: "Water",
+        description: "Bottled water.",
+        price: "15"
       },
       {
         id: 22,
-        name: "Iced Tea",
-        description: "Sweet or unsweetened",
-        price: "$2.99"
+        name: "Classic Mojito",
+        description: "Refreshing lime and mint mojito.",
+        price: "100"
       },
       {
         id: 23,
-        name: "Coffee",
-        description: "Hot or iced coffee",
-        price: "$3.49"
+        name: "Passion Fruit Mojito",
+        description: "Passion fruit flavored mojito.",
+        price: "120"
+      },
+      {
+        id: 25,
+        name: "Strawberry Mojito",
+        description: "Strawberry flavored mojito.",
+        price: "115"
+      },
+      {
+        id: 26,
+        name: "Blue Mojito",
+        description: "Blue mojito.",
+        price: "115"
       }
     ]
   }
@@ -269,7 +280,7 @@ const Menu = () => {
                     <CardContent className="p-4 sm:p-6">
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-1 sm:gap-0">
                         <h3 className="text-lg sm:text-xl font-semibold text-foreground">{item.name}</h3>
-                        <span className="text-lg font-bold text-primary">{item.price}</span>
+                        <span className="text-lg font-bold text-primary">{formatPrice(item.price)}</span>
                       </div>
                       <p className="text-sm sm:text-base text-muted-foreground mb-3">{item.description}</p>
                     </CardContent>
@@ -288,7 +299,7 @@ const Menu = () => {
                         <div key={index} className="flex justify-between items-center p-3 bg-secondary/50 rounded-lg">
                           <span className="text-sm font-medium text-foreground">{addon.name}</span>
                           <Badge variant="secondary" className="text-primary">
-                            {addon.price}
+                            {formatPrice(addon.price)}
                           </Badge>
                         </div>
                       ))}
