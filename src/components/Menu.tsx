@@ -15,6 +15,16 @@ import pistachioMilkshake from "@/assets/PistachioMilkshake.png";
 import vanillaIceCream from "@/assets/vanillaicecream.png";
 import seasonalIceCream from "@/assets/seasonalicecream.png";
 import iceFriedPotatoFries from "@/assets/icefriedpotatofries.png";
+import XBreaker from "@/assets/XBreaker.png";
+import ClassicMojito from "@/assets/classicmojito.jpeg";
+import PassionFruitMojito from "@/assets/PassionFruitMojito.jpeg";
+import StrawberryMojito from "@/assets/strawberrymojito.jpeg";
+import BlueMojito from "@/assets/BlueMojito.jpeg";
+import CheesyFries from "@/assets/cheesyfries.jpeg";
+import XFries from "@/assets/x-fries.jpeg";
+import Fries from "@/assets/fries.jpg";
+import SoftDrink from "@/assets/softdrink.png";
+import Water from "@/assets/water.png";
 
 // Format prices with EGP while avoiding double prefixing
 const formatPrice = (price: string) => {
@@ -50,7 +60,7 @@ const menuCategories = [
         name: "X-Breaker",
         description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun, Eggs, American Cheese, Pickles, X Sauce.",
         price: "190",
-        image: classicBurger
+        image: XBreaker
       },
       {
         id: 4,
@@ -112,25 +122,28 @@ const menuCategories = [
         id: 11,
         name: "French Fries",
         description: "Classic Crispy Fries.",
-        price: "20"
+        price: "20",
+        image: Fries
       },
-      {
+/*       {
         id: 12,
         name: "Fried Sweet Potato Fries",
         description: "Fried Sweet Potato Fries",
         price: "40"
-      },
+      }, */
       {
         id: 13,
         name: "Cheesy Fries",
         description: "Seasoned Fries Coated with Cheese Sauce.",
-        price: "65"
+        price: "65",
+        image: CheesyFries
       },
       {
         id: 24,
         name: "X-Fries",
         description: "Golden Fries Loaded with Smashed beef burger patty, Grilled Onions, Cheese Sauce, Chopped Pickles, Jalapenos, X Sauce, Hot Mayo, Ranch Sauce.",
-        price: "60"
+        price: "60",
+        image: XFries
       }
     ],
     addons: [
@@ -171,7 +184,7 @@ const menuCategories = [
         price: "80",
         image: vanillaIceCream
       },
-      {
+/*       {
         id: 18,
         name: "Seasonal Ice-cream",
         description: "Seasonal flavor soft serve.",
@@ -184,7 +197,7 @@ const menuCategories = [
         description: "Fried Sweet Potato Fries Topped with Cinnamon Sugar, Soft Ice Cream, Caramel Sauce.",
         price: "125",
         image: iceFriedPotatoFries
-      }
+      } */
   ]
   },
   {
@@ -195,37 +208,43 @@ const menuCategories = [
         id: 20,
         name: "Soft Drink",
         description: "Cola, Orange, Lemon-Lime, etc.",
-        price: "15"
+        price: "15",
+        image: SoftDrink
       },
       {
         id: 21,
         name: "Water",
         description: "Bottled water.",
+        image: Water,
         price: "15"
       },
       {
         id: 22,
         name: "Classic Mojito",
         description: "Refreshing lime and mint mojito.",
-        price: "100"
+        price: "100",
+        image: ClassicMojito
       },
       {
         id: 23,
         name: "Passion Fruit Mojito",
         description: "Passion fruit flavored mojito.",
-        price: "120"
+        price: "120",
+        image: PassionFruitMojito
       },
       {
         id: 25,
         name: "Strawberry Mojito",
         description: "Strawberry flavored mojito.",
+        image: StrawberryMojito,
         price: "115"
       },
       {
         id: 26,
         name: "Blue Mojito",
         description: "Blue mojito.",
-        price: "115"
+        price: "115",
+        image: BlueMojito
       }
     ]
   }
