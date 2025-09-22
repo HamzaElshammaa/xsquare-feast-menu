@@ -4,7 +4,7 @@ import { MapPin, Clock, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   const openOnlineOrdering = () => {
-    window.open("https://foodics.online", "_blank");
+    window.open("https://xsquare.foodics.online", "_blank");
   };
 
   return (

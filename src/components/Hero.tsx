@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-burger.jpg";
-
+// Import the static PDF so Vite bundles it
+import menuPdfUrl from "@/assets/Menu.pdf";
 
 const Hero = () => {
   const scrollToMenu = () => {
@@ -14,14 +15,20 @@ const Hero = () => {
     window.open("https://foodics.online", "_blank");
   };
 
+  // New: open the PDF menu in a new tab
+  const openMenuPdf = () => {
+    window.open(menuPdfUrl, "_blank");
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        /* style={{ backgroundImage: `url(${heroImage})` }} */
+        style={{ backgroundColor: `white` }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        {/* Removed dark overlay to keep pure white background */}
       </div>
 
       {/* Content */}
@@ -38,7 +45,7 @@ const Hero = () => {
             <span className="block md:inline">Welcome to</span>{" "}
             <span className="whitespace-nowrap block md:inline">X-Square</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto">
             Gourmet burgers made with premium ingredients, served fresh to your taste buds
           </p>
         </div>
@@ -47,7 +54,8 @@ const Hero = () => {
           <Button 
             variant="hero" 
             size="xl"
-            onClick={scrollToMenu}
+            // onClick={scrollToMenu} // old behavior: scroll to in-page section
+            onClick={openMenuPdf} // new behavior: open PDF in new tab
             className="min-w-[200px]"
           >
             View Menu
@@ -63,7 +71,7 @@ const Hero = () => {
         </div>
 
         <div className="mt-12 animate-bounce">
-          <div className="w-1 h-16 bg-white/50 mx-auto rounded-full"></div>
+          <div className="w-1 h-16 bg-white/20 mx-auto rounded-full"></div>
         </div>
       </div>
     </section>

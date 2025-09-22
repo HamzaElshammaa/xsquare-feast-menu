@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
+// Import static PDF to be served by Vite
+import menuPdfUrl from "@/assets/Menu.pdf";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +13,10 @@ const Header = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
+  };
+
+  const openMenuPdf = () => {
+    window.open(menuPdfUrl, "_blank");
   };
 
   return (
@@ -28,7 +33,8 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <button
-            onClick={() => scrollToSection("menu")}
+            // onClick={() => scrollToSection("menu")} // old behavior: in-page scroll
+            onClick={openMenuPdf}
             className="text-foreground hover:text-primary transition-colors"
           >
             Menu
@@ -43,7 +49,7 @@ const Header = () => {
             variant="cta" 
             size="sm"
             className="h-10 py-2 leading-none"
-            onClick={() => window.open("https://foodics.online", "_blank")}
+            onClick={() => window.open("https://xsquare.foodics.online", "_blank")}
           >
             Order Online
           </Button>
@@ -65,7 +71,8 @@ const Header = () => {
         <div className="md:hidden bg-background border-b border-border">
           <nav className="container mx-auto px-4 py-4 space-y-4">
             <button
-              onClick={() => scrollToSection("menu")}
+              // onClick={() => scrollToSection("menu")} // old behavior: in-page scroll
+              onClick={openMenuPdf}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               Menu
