@@ -297,10 +297,8 @@ const Menu = () => {
                       </div>
                     )}
                     <CardContent className="p-3 sm:p-4">
-                      <div className="flex items-start justify-between gap-2">
-                        <h3 className="text-base sm:text-lg font-semibold text-foreground line-clamp-2">{item.name}</h3>
-                        <span className="text-base sm:text-lg font-bold text-primary whitespace-nowrap">{formatPrice(item.price)}</span>
-                      </div>
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground line-clamp-2">{item.name}</h3>
+                      <span className="mt-1 text-sm sm:text-base font-medium text-primary/90">{formatPrice(item.price)}</span>
                     </CardContent>
                   </Card>
                 ))}
