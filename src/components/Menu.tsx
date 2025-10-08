@@ -284,11 +284,11 @@ const Menu = () => {
 
           {menuCategories.map((category) => (
             <TabsContent key={category.id} value={category.id} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                 {category.items.map((item) => (
-                  <Card key={item.id} className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1">
+                  <Card key={item.id} className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1 border border-border/60">
                     {item.image && (
-                      <div className="aspect-square overflow-hidden">
+                      <div className="aspect-[4/3] overflow-hidden">
                         <img
                           src={item.image}
                           alt={item.name}
@@ -296,12 +296,11 @@ const Menu = () => {
                         />
                       </div>
                     )}
-                    <CardContent className="p-4 sm:p-6">
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-1 sm:gap-0">
-                        <h3 className="text-lg sm:text-xl font-semibold text-foreground">{item.name}</h3>
-                        <span className="text-lg font-bold text-primary">{formatPrice(item.price)}</span>
+                    <CardContent className="p-3 sm:p-4">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-base sm:text-lg font-semibold text-foreground line-clamp-2">{item.name}</h3>
+                        <span className="text-base sm:text-lg font-bold text-primary whitespace-nowrap">{formatPrice(item.price)}</span>
                       </div>
-                      <p className="text-sm sm:text-base text-muted-foreground mb-3">{item.description}</p>
                     </CardContent>
                   </Card>
                 ))}
