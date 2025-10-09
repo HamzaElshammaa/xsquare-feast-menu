@@ -35,26 +35,26 @@ const xtraStuff = [
 const MenuItem = ({ name, price, description }: { name: string; price: number; description?: string }) => (
   <div className="mb-4">
     <div className="flex justify-between items-start gap-3">
-      <span className="font-heading text-primary uppercase text-base sm:text-lg leading-tight">{name}</span>
-      <span className="font-heading text-primary text-base sm:text-lg whitespace-nowrap">{price}</span>
+      <span className="font-sans text-primary uppercase text-base sm:text-lg leading-tight font-bold">{name}</span>
+      <span className="font-sans text-primary text-base sm:text-lg whitespace-nowrap font-bold">{price}</span>
     </div>
     {description && (
-      <p className="text-xs sm:text-sm text-gray-700 italic mt-0.5 leading-snug">{description}</p>
+      <p className="font-sans text-xs sm:text-sm text-primary italic mt-0.5 leading-snug">{description}</p>
     )}
   </div>
 );
 
 const XtraItem = ({ name, price }: { name: string; price: number }) => (
   <div className="flex justify-between items-center gap-2 mb-1.5">
-    <span className="font-heading text-primary uppercase text-sm sm:text-base">{name}</span>
-    <span className="font-heading text-primary text-sm sm:text-base">{price}</span>
+    <span className="font-sans text-primary uppercase text-sm sm:text-base">{name}</span>
+    <span className="font-sans text-primary text-sm sm:text-base">{price}</span>
   </div>
 );
 
 const SectionTitle = ({ children, note }: { children: ReactNode; note?: string }) => (
   <div className="mb-3">
-    <h3 className="font-heading text-primary uppercase text-xl sm:text-2xl tracking-wide">{children}</h3>
-    {note && <p className="text-xs text-gray-600 italic mt-0.5">{note}</p>}
+    <h3 className="font-heading text-primary uppercase text-2xl sm:text-3xl lg:text-4xl tracking-wide">{children}</h3>
+    {note && <p className="font-sans text-xs text-primary italic mt-0.5">{note}</p>}
   </div>
 );
 
@@ -108,7 +108,7 @@ const Menu = () => {
               </div>
             </div>
             <div className="mt-8 text-center">
-              <p className="text-xs sm:text-sm text-gray-600">All prices are inclusive of 14% VAT</p>
+              <p className="font-sans text-xs sm:text-sm text-primary">All prices are inclusive of 14% VAT</p>
             </div>
           </div>
         </div>
