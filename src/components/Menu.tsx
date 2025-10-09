@@ -17,7 +17,7 @@ const hotDogs = [
   { name: "X-DOG", price: 140, description: "Grilled Hot Dog, X Sauce, Grilled Onions, Cheese Sauce, Pickles, Jalapenos." },
 ];
 
-const xtraStuff = [
+const xtraStuff1 = [
   { name: "X-TRA PATTY", price: 55 },
   { name: "CRISPY CHICKEN", price: 70 },
   { name: "BEEF BACON", price: 40 },
@@ -31,6 +31,48 @@ const xtraStuff = [
   { name: "PICKLES", price: 15 },
   { name: "RELISH", price: 15 },
 ];
+
+const Fries = [
+  { name: "FRENCH FRIES", price: 40, description: "Classic Crispy Fries" },
+  { name: "CHEESY FRIES", price: 60, description: "Seasoned Fries Coated with Cheese Sauce." },
+  { name: "FRIED SWEET POTATO FRIES", price: 65, description: "Fries Sweet Potato Fries" },
+  { name: "X-FRIES", price: 125, description: "Golden fries Loaded with Smashed beef burger patty, Grilled Onions, Cheese Sauce, Chopped Pickles, Jalapenos, X Sauce, Hot Mayo, Ranch Sauce." },
+]
+
+
+const MilkShakes = [
+  { name: "PISTACHIO MILKSHAKE", price: 120 },
+  { name: "LOTUS MILKSHAKE", price: 120 },
+]
+
+const SoftIceCream = [
+  { name: "VANILLA ICE-CREAM", price: 80 },
+  { name: "SEASONAL ICE-CREAM", price: 80 },
+  { name: "ICE FRIED POTATO FRIES", price: 125, description: "Fried Sweet Potato Fries Topped with Cinnamon Sugar, Soft Ice Cream, Caramel Sauce." },
+]
+
+
+const DRINKS = [
+  { name: "CLASSIC MOJITO", price: 100 },
+  { name: "PASSION FRUIT MOJITO", price: 115 },
+  { name: "STRAWBERRY MOJITO", price: 115 },
+  { name: "BLUE MOJITO", price: 115 },
+  { name: "SOFT DRINK", price: 25 },
+  { name: "WATER", price: 15 },
+]
+
+const xtraStuff2 = [
+  { name: "HARD SHELL COATING", price: 15, description: "Milk Chocolate or White Chocolate" },
+];
+
+const addSauceFlavors = ["Chocolate", "Pistachio", "Caramel", "Cherry", "Strawberry"];
+
+const DippingSauce = [
+  { name: "Hot mayo", price: 20 },
+  { name: "X - sauce", price: 20 },
+  { name: "Ranch sauce", price: 20 },
+  { name: "Buffalo sauce", price: 20 },
+]
 
 const MenuItem = ({ name, price, description }: { name: string; price: number; description?: string }) => (
   <div className="mb-4">
@@ -61,7 +103,9 @@ const SectionTitle = ({ children, note }: { children: ReactNode; note?: string }
 const Menu = () => {
   return (
     <section id="menu" className="py-12 px-4 bg-white">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto space-y-10">
+        
+        {/* PAGE 1 - Burgers, Sandwiches, Hot Dogs */}
         <div className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white">
           <div className="rounded-2xl border-[3px] border-primary p-6 sm:p-10 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12">
@@ -100,7 +144,7 @@ const Menu = () => {
                 <div className="w-full">
                   <SectionTitle>X-TRA STUFF</SectionTitle>
                   <div className="space-y-1">
-                    {xtraStuff.map((item) => (
+                    {xtraStuff1.map((item) => (
                       <XtraItem key={item.name} {...item} />
                     ))}
                   </div>
@@ -112,6 +156,90 @@ const Menu = () => {
             </div>
           </div>
         </div>
+
+        {/* PAGE 2 - Fries, Drinks, Milkshakes, Ice Cream */}
+        <div className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white">
+          <div className="rounded-2xl border-[3px] border-primary p-6 sm:p-10 bg-white">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              
+              {/* Left Column */}
+              <div className="space-y-6">
+                <div>
+                  <SectionTitle>FRIES</SectionTitle>
+                  {Fries.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+
+                <div>
+                  <SectionTitle>ADD A DIPPING SAUCE</SectionTitle>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                    {DippingSauce.map((item) => (
+                      <div key={item.name} className="flex justify-between items-center gap-2">
+                        <span className="font-sans text-primary text-sm">{item.name}</span>
+                        <span className="font-sans text-primary text-sm font-bold">{item.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <SectionTitle>DRINKS</SectionTitle>
+                  {DRINKS.map((item) => (
+                    <div key={item.name} className="flex justify-between items-center gap-3 mb-2">
+                      <span className="font-sans text-primary uppercase text-sm sm:text-base font-bold">{item.name}</span>
+                      <span className="font-sans text-primary text-sm sm:text-base font-bold">{item.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className="space-y-6">
+                <div>
+                  <SectionTitle>MILKSHAKES</SectionTitle>
+                  {MilkShakes.map((item) => (
+                    <div key={item.name} className="flex justify-between items-center gap-3 mb-2">
+                      <span className="font-sans text-primary uppercase text-sm sm:text-base font-bold">{item.name}</span>
+                      <span className="font-sans text-primary text-sm sm:text-base font-bold">{item.price}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div>
+                  <SectionTitle>SOFT ICE-CREAM</SectionTitle>
+                  {SoftIceCream.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                </div>
+
+                <div>
+                  <SectionTitle>X-TRA STUFF</SectionTitle>
+                  {xtraStuff2.map((item) => (
+                    <MenuItem key={item.name} {...item} />
+                  ))}
+                  
+                  <div className="mt-4">
+                    <div className="flex justify-between items-center gap-3 mb-2">
+                      <span className="font-sans text-primary uppercase text-sm sm:text-base font-bold">ADD SAUCE</span>
+                      <span className="font-sans text-primary text-sm sm:text-base font-bold">15</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-2">
+                      {addSauceFlavors.map((flavor) => (
+                        <span key={flavor} className="font-sans text-primary text-sm italic">{flavor}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <p className="font-sans text-xs sm:text-sm text-primary">All prices are inclusive of 14% VAT</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
