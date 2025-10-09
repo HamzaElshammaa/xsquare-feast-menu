@@ -15,7 +15,7 @@
 @font-face {
   font-family: "Pain de Mie";
   src: local("Pain de Mie"),
-       url("/lovable-uploads/PainDeMie.woff.otf") format("opentype");
+       url("/fonts/PainDeMie.woff.otf") format("opentype");
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;

@@ -54,8 +54,7 @@ const Hero = () => {
           <Button 
             variant="hero" 
             size="xl"
-            // onClick={scrollToMenu} // old behavior: scroll to in-page section
-            onClick={openMenuPdf} // new behavior: open PDF in new tab
+            onClick={scrollToMenu}
             className="min-w-[200px]"
           >
             View Menu

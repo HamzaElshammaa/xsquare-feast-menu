@@ -24,17 +24,16 @@ const Header = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <img 
-            src="/lovable-uploads/Icon-X.png" 
+            src="/lovable-uploads/XsquareLogo.png" 
             alt="X-Square Burgers Logo" 
-            className="h-10 md:h-12 w-auto"
+            className="h-8 md:h-10 w-auto"
           />
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <button
-            // onClick={() => scrollToSection("menu")} // old behavior: in-page scroll
-            onClick={openMenuPdf}
+            onClick={() => scrollToSection("menu")}
             className="text-foreground hover:text-primary transition-colors"
           >
             Menu
@@ -71,8 +70,7 @@ const Header = () => {
         <div className="md:hidden bg-background border-b border-border">
           <nav className="container mx-auto px-4 py-4 space-y-4">
             <button
-              // onClick={() => scrollToSection("menu")} // old behavior: in-page scroll
-              onClick={openMenuPdf}
+              onClick={() => scrollToSection("menu")}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               Menu
