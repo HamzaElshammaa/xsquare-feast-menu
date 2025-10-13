@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import MenuItemModal from "@/components/MenuItemModal";
 import classicBurger from "@/assets/classic-burger.jpg";
 import bbqBurger from "@/assets/bbq-burger.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
@@ -251,8 +253,31 @@ const menuCategories = [
 ];
 
 const Menu = () => {
+  const [selectedItem, setSelectedItem] = useState<{
+    name: string;
+    price: number;
+    description?: string;
+    image?: string;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const openOnlineOrdering = () => {
     window.open("https://foodics.online", "_blank");
+  };
+
+  const handleItemClick = (item: any) => {
+    setSelectedItem({
+      name: item.name,
+      price: parseInt(item.price),
+      description: item.description,
+      image: item.image,
+    });
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
   };
 
   return (
@@ -286,7 +311,11 @@ const Menu = () => {
             <TabsContent key={category.id} value={category.id} className="space-y-6">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                 {category.items.map((item) => (
-                  <Card key={item.id} className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1 border border-border/60">
+                  <Card 
+                    key={item.id} 
+                    className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1 border border-border/60 cursor-pointer"
+                    onClick={() => handleItemClick(item)}
+                  >
                     {item.image && (
                       <div className="aspect-[4/3] overflow-hidden">
                         <img
@@ -346,6 +375,13 @@ const Menu = () => {
           </Button>
         </div>
       </div>
+
+      {/* Menu Item Modal */}
+      <MenuItemModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        item={selectedItem}
+      />
     </section>
   );
 };
