@@ -6,7 +6,7 @@
 @font-face {
   font-family: "ITC Avant Garde Pro Md";
   src: local("ITC Avant Garde Pro Md"),
-       url("/lovable-uploads/ITCAvantGardePro-Md.woff.otf") format("opentype");
+       url("/fonts/ITCAvantGardePro-Md.woff.otf") format("opentype");
   font-weight: 500 700;
   font-style: normal;
   font-display: swap;
@@ -15,7 +15,7 @@
 @font-face {
   font-family: "Pain de Mie";
   src: local("Pain de Mie"),
-       url("/lovable-uploads/PainDeMie.woff.otf") format("opentype");
+       url("/fonts/PainDeMie.woff.otf") format("opentype");
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;

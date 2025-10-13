@@ -284,7 +284,7 @@ const Menu = () => {
     <section id="menu" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4 uppercase">
             Our Menu
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -326,7 +326,7 @@ const Menu = () => {
                       </div>
                     )}
                     <CardContent className="p-3 sm:p-4">
-                      <h3 className="text-base sm:text-lg font-semibold text-foreground line-clamp-2">{item.name}</h3>
+                      <h3 className="font-heading text-lg sm:text-xl font-semibold text-foreground line-clamp-2 uppercase">{item.name}</h3>
                       <span className="mt-1 text-sm sm:text-base font-medium text-primary/90">{formatPrice(item.price)}</span>
                     </CardContent>
                   </Card>
@@ -358,7 +358,7 @@ const Menu = () => {
 
         <div className="text-center mt-12">
           <div className="mb-6">
-            <h3 className="text-2xl font-semibold text-foreground mb-2">
+            <h3 className="font-heading text-2xl font-semibold text-foreground mb-2 uppercase">
               Ready to Order?
             </h3>
             <p className="text-muted-foreground">

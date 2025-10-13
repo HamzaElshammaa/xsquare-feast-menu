@@ -46,7 +46,7 @@ const MenuItemModal = ({ isOpen, onClose, item }: MenuItemModalProps) => {
           {/* Content */}
           <div className="p-6">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-heading text-primary uppercase mb-2">
+              <DialogTitle className="text-4xl font-heading text-primary uppercase mb-2 tracking-wide">
                 {item.name}
               </DialogTitle>
             </DialogHeader>
@@ -58,7 +58,7 @@ const MenuItemModal = ({ isOpen, onClose, item }: MenuItemModalProps) => {
             )}
 
             <div className="flex items-center justify-between mb-6">
-              <span className="font-sans text-3xl font-bold text-primary">
+              <span className="font-heading text-5xl font-bold text-primary">
                 {item.price} EGP
               </span>
             </div>
