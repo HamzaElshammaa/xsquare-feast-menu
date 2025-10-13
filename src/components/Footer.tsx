@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import { MapPin, Clock, Phone, Instagram, Facebook } from "lucide-react";
 
 
 const Footer = () => {
@@ -71,15 +71,35 @@ const Footer = () => {
             <div className="space-y-3 text-background/80">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <a href="tel:+201003009418" className="hover:text-primary transition-colors">
+                  01003009418
+                </a>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-primary" />
-                <span>info@xsquareburgers.com</span>
+                <Instagram className="w-4 h-4 text-primary" />
+                <a 
+                  href="https://www.instagram.com/xsquare_burger/?igsh=MW1nZDJwdDlib2k1aA%3D%3D&utm_source=qr#" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  @xsquare_burger
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Facebook className="w-4 h-4 text-primary" />
+                <a 
+                  href="https://m.facebook.com/profile.php?id=61581294610102&mibextid=wwXIfr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  X-Square Burgers
+                </a>
               </div>
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span>Multiple locations throughout the city</span>
+                <span>Fuel up gas station, New Cairo 1</span>
               </div>
             </div>
           </div>
@@ -91,8 +111,7 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Clock className="w-4 h-4 text-primary" />
                 <div>
-                  <p>Mon - Fri: 11:00 AM - 9:00 PM</p>
-                  <p>Sat - Sun: 12:00 PM - 10:00 PM</p>
+                  <p>Every Day: 2:00 PM - 2:00 AM</p>
                 </div>
               </div>
             </div>
