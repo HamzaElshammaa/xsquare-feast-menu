@@ -293,18 +293,20 @@ const Menu = () => {
         </div>
 
         <Tabs defaultValue="beef-burgers" className="w-full">
-          <div className="w-full overflow-x-auto mb-8">
-            <TabsList className="inline-flex w-max min-w-full h-auto p-1 gap-1">
-              {menuCategories.map((category) => (
-                <TabsTrigger 
-                  key={category.id} 
-                  value={category.id}
-                  className="flex-shrink-0 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  {category.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+          <div className="sticky top-16 z-40 bg-white/95 backdrop-blur-sm py-4 -mx-4 px-4 border-b border-border/50 md:static md:bg-transparent md:backdrop-blur-none md:border-0 md:py-0 md:mx-0 md:px-0">
+            <div className="w-full overflow-x-auto mb-0 md:mb-8">
+              <TabsList className="inline-flex w-max min-w-full h-auto p-1 gap-1 bg-secondary">
+                {menuCategories.map((category) => (
+                  <TabsTrigger 
+                    key={category.id} 
+                    value={category.id}
+                    className="flex-shrink-0 px-3 py-2 text-xs sm:text-sm whitespace-nowrap data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  >
+                    {category.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </div>
 
           {menuCategories.map((category) => (
