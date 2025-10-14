@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 // Import static PDF to be served by Vite
@@ -6,11 +7,25 @@ import menuPdfUrl from "@/assets/Menu.pdf";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMenuOpen(false);
   };
@@ -19,21 +34,26 @@ const Header = () => {
     window.open(menuPdfUrl, "_blank");
   };
 
+  const goToMenuPage = () => {
+    navigate("/menu");
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
+        <button onClick={() => navigate("/")} className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
           <img 
             src="/lovable-uploads/XsquareLogo.png" 
             alt="X-Square Burgers Logo" 
             className="h-8 md:h-10 w-auto"
           />
-        </div>
+        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <button
-            onClick={() => scrollToSection("menu")}
+            onClick={goToMenuPage}
             className="text-foreground hover:text-primary transition-colors"
           >
             Menu
@@ -70,7 +90,7 @@ const Header = () => {
         <div className="md:hidden bg-background border-b border-border">
           <nav className="container mx-auto px-4 py-4 space-y-4">
             <button
-              onClick={() => scrollToSection("menu")}
+              onClick={goToMenuPage}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               Menu

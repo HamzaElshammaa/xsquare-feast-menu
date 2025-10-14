@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-burger.jpg";
 // Import the static PDF so Vite bundles it
 import menuPdfUrl from "@/assets/Menu.pdf";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const scrollToMenu = () => {
     const element = document.getElementById("menu");
     if (element) {
@@ -20,13 +23,18 @@ const Hero = () => {
     window.open(menuPdfUrl, "_blank");
   };
 
+  // Navigate to the menu page
+  const goToMenuPage = () => {
+    navigate("/menu");
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        /* style={{ backgroundImage: `url(${heroImage})` }} */
-        style={{ backgroundColor: `white` }}
+        style={{ backgroundImage: `url(${heroImage})` }} 
+        /* style={{ backgroundColor: `white` }} */
       >
         {/* Removed dark overlay to keep pure white background */}
       </div>
@@ -54,7 +62,7 @@ const Hero = () => {
           <Button 
             variant="hero" 
             size="xl"
-            onClick={scrollToMenu}
+            onClick={goToMenuPage}
             className="min-w-[200px]"
           >
             View Menu

@@ -1,20 +1,44 @@
 import type { ReactNode } from "react";
+import { useState } from "react";
+import MenuItemModal from "@/components/MenuItemModal";
+import classicBurger from "@/assets/classic-burger.jpg";
+import bbqBurger from "@/assets/bbq-burger.jpg";
+import chickenBurger from "@/assets/chicken-burger.jpg";
+import classicHotDog from "@/assets/classic-hotdog.png";
+import XDog from "@/assets/x-dog.png";
+import XBurger from "@/assets/XBurger.png";
+import buffaloChicken from "@/assets/buffalochicken.png";
+import lotusMilkshake from "@/assets/LotusMilkshake.png";
+import pistachioMilkshake from "@/assets/PistachioMilkshake.png";
+import vanillaIceCream from "@/assets/vanillaicecream.png";
+import seasonalIceCream from "@/assets/seasonalicecream.png";
+import iceFriedPotatoFries from "@/assets/icefriedpotatofries.png";
+import XBreaker from "@/assets/XBreaker.png";
+import ClassicMojito from "@/assets/classicmojito.jpeg";
+import PassionFruitMojito from "@/assets/PassionFruitMojito.jpeg";
+import StrawberryMojito from "@/assets/strawberrymojito.jpeg";
+import BlueMojito from "@/assets/BlueMojito.jpeg";
+import CheesyFries from "@/assets/cheesyfries.jpeg";
+import XFries from "@/assets/x-fries.jpeg";
+import Fries from "@/assets/fries.jpg";
+import SoftDrink from "@/assets/softdrink.png";
+import Water from "@/assets/water.png";
 
 const beefBurgers = [
-  { name: "CLASSIC BURGER", price: 180, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with American Cheese, Pickles, Onions, Ketchup, Mustard." },
-  { name: "X - BURGER", price: 190, description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun topped with Cheese Sauce, American Cheese, Pickles, X Sauce." },
-  { name: "X - BREAKER", price: 190, description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun, Eggs, American Cheese, Pickles, X Sauce." },
-  { name: "DUTCH BURGER", price: 190, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with Dutch Cheese, Grilled Mushroom, Mayo." },
+  { name: "CLASSIC BURGER", price: 180, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with American Cheese, Pickles, Onions, Ketchup, Mustard.", image: classicBurger },
+  { name: "X - BURGER", price: 190, description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun topped with Cheese Sauce, American Cheese, Pickles, X Sauce.", image: XBurger },
+  { name: "X - BREAKER", price: 190, description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun, Eggs, American Cheese, Pickles, X Sauce.", image: XBreaker },
+  { name: "DUTCH BURGER", price: 190, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with Dutch Cheese, Grilled Mushroom, Mayo.", image: "/lovable-uploads/dutch-burger.jpg" },
 ];
 
 const chickenSandwiches = [
-  { name: "FRIED CHICKEN SANDWICH", price: 175, description: "Golden Crispy Chicken, Cheese, Mayo, Lettuce." },
-  { name: "BUFFALO CHICKEN SANDWICH", price: 175, description: "Fried Chicken Tossed with Buffalo Sauce, Hot Mayo, Ranch Sauce, Lettuce." },
+  { name: "FRIED CHICKEN SANDWICH", price: 175, description: "Golden Crispy Chicken, Cheese, Mayo, Lettuce.", image: chickenBurger },
+  { name: "BUFFALO CHICKEN SANDWICH", price: 175, description: "Fried Chicken Tossed with Buffalo Sauce, Hot Mayo, Ranch Sauce, Lettuce.", image: buffaloChicken },
 ];
 
 const hotDogs = [
-  { name: "CLASSIC HOTDOG", price: 110, description: "Grilled Hot Dog, Mustard, Ketchup, Relish." },
-  { name: "X-DOG", price: 140, description: "Grilled Hot Dog, X Sauce, Grilled Onions, Cheese Sauce, Pickles, Jalapenos." },
+  { name: "CLASSIC HOTDOG", price: 110, description: "Grilled Hot Dog, Mustard, Ketchup, Relish.", image: classicHotDog },
+  { name: "X-DOG", price: 140, description: "Grilled Hot Dog, X Sauce, Grilled Onions, Cheese Sauce, Pickles, Jalapenos.", image: XDog },
 ];
 
 const xtraStuff1 = [
@@ -32,33 +56,33 @@ const xtraStuff1 = [
   { name: "RELISH", price: 15 },
 ];
 
-const Fries = [
-  { name: "FRENCH FRIES", price: 40, description: "Classic Crispy Fries" },
-  { name: "CHEESY FRIES", price: 60, description: "Seasoned Fries Coated with Cheese Sauce." },
+const friesItems = [
+  { name: "FRENCH FRIES", price: 40, description: "Classic Crispy Fries", image: Fries },
+  { name: "CHEESY FRIES", price: 60, description: "Seasoned Fries Coated with Cheese Sauce.", image: CheesyFries },
   { name: "FRIED SWEET POTATO FRIES", price: 65, description: "Fries Sweet Potato Fries" },
-  { name: "X-FRIES", price: 125, description: "Golden fries Loaded with Smashed beef burger patty, Grilled Onions, Cheese Sauce, Chopped Pickles, Jalapenos, X Sauce, Hot Mayo, Ranch Sauce." },
+  { name: "X-FRIES", price: 125, description: "Golden fries Loaded with Smashed beef burger patty, Grilled Onions, Cheese Sauce, Chopped Pickles, Jalapenos, X Sauce, Hot Mayo, Ranch Sauce.", image: XFries },
 ]
 
 
-const MilkShakes = [
-  { name: "PISTACHIO MILKSHAKE", price: 120 },
-  { name: "LOTUS MILKSHAKE", price: 120 },
+const milkShakes = [
+  { name: "PISTACHIO MILKSHAKE", price: 120, image: pistachioMilkshake },
+  { name: "LOTUS MILKSHAKE", price: 120, image: lotusMilkshake },
 ]
 
-const SoftIceCream = [
-  { name: "VANILLA ICE-CREAM", price: 80 },
-  { name: "SEASONAL ICE-CREAM", price: 80 },
-  { name: "ICE FRIED POTATO FRIES", price: 125, description: "Fried Sweet Potato Fries Topped with Cinnamon Sugar, Soft Ice Cream, Caramel Sauce." },
+const softIceCream = [
+  { name: "VANILLA ICE-CREAM", price: 80, image: vanillaIceCream },
+  { name: "SEASONAL ICE-CREAM", price: 80, image: seasonalIceCream },
+  { name: "ICE FRIED POTATO FRIES", price: 125, description: "Fried Sweet Potato Fries Topped with Cinnamon Sugar, Soft Ice Cream, Caramel Sauce.", image: iceFriedPotatoFries },
 ]
 
 
-const DRINKS = [
-  { name: "CLASSIC MOJITO", price: 100 },
-  { name: "PASSION FRUIT MOJITO", price: 115 },
-  { name: "STRAWBERRY MOJITO", price: 115 },
-  { name: "BLUE MOJITO", price: 115 },
-  { name: "SOFT DRINK", price: 25 },
-  { name: "WATER", price: 15 },
+const drinks = [
+  { name: "CLASSIC MOJITO", price: 100, image: ClassicMojito },
+  { name: "PASSION FRUIT MOJITO", price: 115, image: PassionFruitMojito },
+  { name: "STRAWBERRY MOJITO", price: 115, image: StrawberryMojito },
+  { name: "BLUE MOJITO", price: 115, image: BlueMojito },
+  { name: "SOFT DRINK", price: 25, image: SoftDrink },
+  { name: "WATER", price: 15, image: Water },
 ]
 
 const xtraStuff2 = [
@@ -74,8 +98,15 @@ const DippingSauce = [
   { name: "Buffalo sauce", price: 20 },
 ]
 
-const MenuItem = ({ name, price, description }: { name: string; price: number; description?: string }) => (
-  <div className="mb-4">
+type MenuItemType = {
+  name: string;
+  price: number;
+  description?: string;
+  image?: string;
+};
+
+const MenuItem = ({ name, price, description, onClick }: MenuItemType & { onClick?: () => void }) => (
+  <div className={`mb-4 ${onClick ? 'cursor-pointer hover:bg-primary/5 transition-colors p-2 -m-2 rounded' : ''}`} onClick={onClick}>
     <div className="flex justify-between items-start gap-3">
       <span className="font-sans text-primary uppercase text-base sm:text-lg leading-tight font-bold">{name}</span>
       <span className="font-sans text-primary text-base sm:text-lg whitespace-nowrap font-bold">{price}</span>
@@ -101,6 +132,21 @@ const SectionTitle = ({ children, note }: { children: ReactNode; note?: string }
 );
 
 const Menu = () => {
+  const [selectedItem, setSelectedItem] = useState<MenuItemType | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleItemClick = (item: MenuItemType) => {
+    if (item.image) {
+      setSelectedItem(item);
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
+
   return (
     <section id="menu" className="py-12 px-4 bg-white">
       <div className="max-w-5xl mx-auto space-y-10">
@@ -115,7 +161,7 @@ const Menu = () => {
                     BEEF BURGERS
                   </SectionTitle>
                   {beefBurgers.map((item) => (
-                    <MenuItem key={item.name} {...item} />
+                    <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
                 <div>
@@ -123,13 +169,13 @@ const Menu = () => {
                     CHICKEN SANDWHICHES
                   </SectionTitle>
                   {chickenSandwiches.map((item) => (
-                    <MenuItem key={item.name} {...item} />
+                    <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
                 <div>
                   <SectionTitle>HOT DOGS</SectionTitle>
                   {hotDogs.map((item) => (
-                    <MenuItem key={item.name} {...item} />
+                    <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
               </div>
@@ -166,8 +212,8 @@ const Menu = () => {
               <div className="space-y-6">
                 <div>
                   <SectionTitle>FRIES</SectionTitle>
-                  {Fries.map((item) => (
-                    <MenuItem key={item.name} {...item} />
+                  {friesItems.map((item) => (
+                    <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
 
@@ -185,8 +231,8 @@ const Menu = () => {
 
                 <div>
                   <SectionTitle>DRINKS</SectionTitle>
-                  {DRINKS.map((item) => (
-                    <div key={item.name} className="flex justify-between items-center gap-3 mb-2">
+                  {drinks.map((item) => (
+                    <div key={item.name} className={`flex justify-between items-center gap-3 mb-2 ${item.image ? 'cursor-pointer hover:bg-primary/5 transition-colors p-2 -m-2 rounded' : ''}`} onClick={() => item.image && handleItemClick(item)}>
                       <span className="font-sans text-primary uppercase text-sm sm:text-base font-bold">{item.name}</span>
                       <span className="font-sans text-primary text-sm sm:text-base font-bold">{item.price}</span>
                     </div>
@@ -198,8 +244,8 @@ const Menu = () => {
               <div className="space-y-6">
                 <div>
                   <SectionTitle>MILKSHAKES</SectionTitle>
-                  {MilkShakes.map((item) => (
-                    <div key={item.name} className="flex justify-between items-center gap-3 mb-2">
+                  {milkShakes.map((item) => (
+                    <div key={item.name} className={`flex justify-between items-center gap-3 mb-2 ${item.image ? 'cursor-pointer hover:bg-primary/5 transition-colors p-2 -m-2 rounded' : ''}`} onClick={() => item.image && handleItemClick(item)}>
                       <span className="font-sans text-primary uppercase text-sm sm:text-base font-bold">{item.name}</span>
                       <span className="font-sans text-primary text-sm sm:text-base font-bold">{item.price}</span>
                     </div>
@@ -208,8 +254,8 @@ const Menu = () => {
 
                 <div>
                   <SectionTitle>SOFT ICE-CREAM</SectionTitle>
-                  {SoftIceCream.map((item) => (
-                    <MenuItem key={item.name} {...item} />
+                  {softIceCream.map((item) => (
+                    <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
 
@@ -241,6 +287,13 @@ const Menu = () => {
         </div>
 
       </div>
+
+      {/* Menu Item Modal */}
+      <MenuItemModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        item={selectedItem}
+      />
     </section>
   );
 };
