@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuItemModal from "@/components/MenuItemModal";
 import classicBurger from "@/assets/classic-burger.jpg";
 import bbqBurger from "@/assets/bbq-burger.jpg";
@@ -134,6 +134,7 @@ const SectionTitle = ({ children, note }: { children: ReactNode; note?: string }
 const Menu = () => {
   const [selectedItem, setSelectedItem] = useState<MenuItemType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const handleItemClick = (item: MenuItemType) => {
     if (item.image) {
@@ -147,12 +148,51 @@ const Menu = () => {
     setSelectedItem(null);
   };
 
+  // Reveal-on-scroll using IntersectionObserver
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const targets = Array.from(root.querySelectorAll<HTMLElement>("[data-reveal]"));
+
+    if (reduce) {
+      // If user prefers reduced motion, show everything immediately
+      for (const el of targets) {
+        el.classList.remove("opacity-0", "translate-y-6");
+        el.classList.add("opacity-100", "translate-y-0");
+      }
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            el.classList.add("opacity-100", "translate-y-0");
+            el.classList.remove("opacity-0", "translate-y-6");
+            io.unobserve(el);
+          }
+        }
+      },
+      { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
+    );
+
+    for (const el of targets) io.observe(el);
+
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section id="menu" className="py-12 px-4 bg-white">
+    <section ref={sectionRef} id="menu" className="py-12 px-4 bg-white">
       <div className="max-w-5xl mx-auto space-y-10">
         
         {/* PAGE 1 - Burgers, Sandwiches, Hot Dogs */}
-        <div className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white">
+        <div
+          data-reveal
+          className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white opacity-0 translate-y-6 transition-all duration-700 ease-out will-change-transform"
+        >
           <div className="rounded-2xl border-[3px] border-primary p-6 sm:p-10 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12">
               <div className="space-y-6">
@@ -204,7 +244,10 @@ const Menu = () => {
         </div>
 
         {/* PAGE 2 - Fries, Drinks, Milkshakes, Ice Cream */}
-        <div className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white">
+        <div
+          data-reveal
+          className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white opacity-0 translate-y-6 transition-all duration-700 ease-out will-change-transform"
+        >
           <div className="rounded-2xl border-[3px] border-primary p-6 sm:p-10 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               
