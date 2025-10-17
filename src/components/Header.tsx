@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -9,6 +9,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   const scrollToSection = (sectionId: string) => {
     // If we're not on the home page, navigate there first
@@ -39,6 +41,51 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  // Observe sections on the home page to activate nav links
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      // Only observe when on home page
+      setActiveId(null);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+      return;
+    }
+
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Active detection should work regardless of motion settings
+    const sections = ["menu", "locations"]; // extendable
+    const elements = sections
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    if (elements.length === 0) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        // Find the most visible entry
+        let best: { id: string; ratio: number } | null = null;
+        for (const entry of entries) {
+          const id = (entry.target as HTMLElement).id;
+          const ratio = entry.intersectionRatio;
+          if (!best || ratio > best.ratio) best = { id, ratio };
+        }
+        if (best) setActiveId(best.id);
+      },
+      {
+        root: null,
+        // Trigger earlier so link highlights as section approaches center
+        rootMargin: "-30% 0px -50% 0px",
+        threshold: [0, 0.15, 0.35, 0.55, 0.75, 1],
+      }
+    );
+
+    elements.forEach((el) => io.observe(el));
+    observerRef.current = io;
+    return () => io.disconnect();
+  }, [location.pathname]);
+
   return (
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -54,13 +101,14 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <button
             onClick={goToMenuPage}
-            className="text-foreground hover:text-primary transition-colors"
+            className={`text-foreground hover:text-primary transition-colors`}
           >
             Menu
           </button>
           <button
             onClick={() => scrollToSection("locations")}
-            className="text-foreground hover:text-primary transition-colors"
+            aria-current={activeId === "locations" ? "page" : undefined}
+            className={`transition-colors ${activeId === "locations" ? "text-primary" : "text-foreground hover:text-primary"}`}
           >
             Locations
           </button>

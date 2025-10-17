@@ -191,12 +191,16 @@ const Menu = () => {
         {/* PAGE 1 - Burgers, Sandwiches, Hot Dogs */}
         <div
           data-reveal
-          className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white opacity-0 translate-y-6 transition-all duration-700 ease-out will-change-transform"
+          className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
         >
           <div className="rounded-2xl border-[3px] border-primary p-6 sm:p-10 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12">
               <div className="space-y-6">
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "0ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle note="All Sandwhiches are served with French Fries">
                     BEEF BURGERS
                   </SectionTitle>
@@ -204,7 +208,11 @@ const Menu = () => {
                     <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "120ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle note="All Sandwhiches are served with French Fries">
                     CHICKEN SANDWHICHES
                   </SectionTitle>
@@ -212,7 +220,11 @@ const Menu = () => {
                     <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "240ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>HOT DOGS</SectionTitle>
                   {hotDogs.map((item) => (
                     <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
@@ -220,14 +232,22 @@ const Menu = () => {
                 </div>
               </div>
               <div className="flex flex-col items-center lg:items-start space-y-6 lg:min-w-[280px]">
-                <div className="w-full flex justify-center mb-4">
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "180ms" }}
+                  className="w-full flex justify-center mb-4 opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <img 
                     src="/lovable-uploads/XsquareLogo.png" 
                     alt="X Square Logo" 
                     className="w-48 sm:w-56 lg:w-64 h-auto"
                   />
                 </div>
-                <div className="w-full">
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "300ms" }}
+                  className="w-full opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>X-TRA STUFF</SectionTitle>
                   <div className="space-y-1">
                     {xtraStuff1.map((item) => (
@@ -246,21 +266,29 @@ const Menu = () => {
         {/* PAGE 2 - Fries, Drinks, Milkshakes, Ice Cream */}
         <div
           data-reveal
-          className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white opacity-0 translate-y-6 transition-all duration-700 ease-out will-change-transform"
+          className="rounded-3xl border-[6px] border-primary p-3 sm:p-4 bg-white opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
         >
           <div className="rounded-2xl border-[3px] border-primary p-6 sm:p-10 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               
               {/* Left Column */}
               <div className="space-y-6">
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "0ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>FRIES</SectionTitle>
                   {friesItems.map((item) => (
                     <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
 
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "120ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>ADD A DIPPING SAUCE</SectionTitle>
                   <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                     {DippingSauce.map((item) => (
@@ -272,7 +300,11 @@ const Menu = () => {
                   </div>
                 </div>
 
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "240ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>DRINKS</SectionTitle>
                   {drinks.map((item) => (
                     <div key={item.name} className={`flex justify-between items-center gap-3 mb-2 ${item.image ? 'cursor-pointer hover:bg-primary/5 transition-colors p-2 -m-2 rounded' : ''}`} onClick={() => item.image && handleItemClick(item)}>
@@ -285,7 +317,11 @@ const Menu = () => {
 
               {/* Right Column */}
               <div className="space-y-6">
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "0ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>MILKSHAKES</SectionTitle>
                   {milkShakes.map((item) => (
                     <div key={item.name} className={`flex justify-between items-center gap-3 mb-2 ${item.image ? 'cursor-pointer hover:bg-primary/5 transition-colors p-2 -m-2 rounded' : ''}`} onClick={() => item.image && handleItemClick(item)}>
@@ -295,14 +331,22 @@ const Menu = () => {
                   ))}
                 </div>
 
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "120ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>SOFT ICE-CREAM</SectionTitle>
                   {softIceCream.map((item) => (
                     <MenuItem key={item.name} {...item} onClick={() => handleItemClick(item)} />
                   ))}
                 </div>
 
-                <div>
+                <div
+                  data-reveal
+                  style={{ transitionDelay: "240ms" }}
+                  className="opacity-0 translate-y-12 transition-all duration-1000 ease-out will-change-transform"
+                >
                   <SectionTitle>X-TRA STUFF</SectionTitle>
                   {xtraStuff2.map((item) => (
                     <MenuItem key={item.name} {...item} />
