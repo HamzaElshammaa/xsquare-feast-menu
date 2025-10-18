@@ -145,3 +145,27 @@ All colors MUST be HSL.
     @apply font-heading;
   }
 }
+
+/* Spotlight card utility: shows a soft radial highlight that follows the mouse */
+@layer components {
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    pointer-events: none;
+    background: radial-gradient(
+      220px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--primary) / 0.14),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+}

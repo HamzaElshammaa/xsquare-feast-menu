@@ -315,7 +315,20 @@ const Menu = () => {
                 {category.items.map((item) => (
                   <Card 
                     key={item.id} 
-                    className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1 border border-border/60 cursor-pointer"
+                    className="overflow-hidden hover:shadow-brand transition-all duration-300 hover:-translate-y-1 border border-border/60 cursor-pointer spotlight-card"
+                    onMouseMove={(e) => {
+                      const target = e.currentTarget as HTMLElement;
+                      const rect = target.getBoundingClientRect();
+                      const x = ((e.clientX - rect.left) / rect.width) * 100;
+                      const y = ((e.clientY - rect.top) / rect.height) * 100;
+                      target.style.setProperty("--mx", `${x}%`);
+                      target.style.setProperty("--my", `${y}%`);
+                    }}
+                    onMouseLeave={(e) => {
+                      const target = e.currentTarget as HTMLElement;
+                      target.style.removeProperty("--mx");
+                      target.style.removeProperty("--my");
+                    }}
                     onClick={() => handleItemClick(item)}
                   >
                     {item.image && (
