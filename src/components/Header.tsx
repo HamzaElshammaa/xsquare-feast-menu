@@ -82,8 +82,7 @@ const Header = () => {
         <Button
           variant="ghost"
           size="icon"
-          className={cn(" hover:text-primary transition-colors",
-              scrolled ? "text-foreground" : "text-background")}
+          className={cn("md:hidden", scrolled ? "text-foreground" : "text-background")}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
