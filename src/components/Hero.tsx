@@ -98,6 +98,8 @@ const Hero = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         />
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/65" />
       </div>
 
       {/* Content */}
