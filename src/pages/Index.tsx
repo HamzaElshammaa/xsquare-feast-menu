@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhoWeAre from "@/components/WhoWeAre";
 import Vision from "@/components/Vision";
+import StorySection from "@/components/StorySection";
 import OurIngredients from "@/components/OurIngredients";
 import Menu from "@/components/Menu";
 import FromTheGram from "@/components/FromTheGram";
@@ -13,8 +14,9 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <WhoWeAre />
-      <Vision />
+     {/* <WhoWeAre /> */}
+      {/* <Vision />  */}
+      <StorySection />
       <OurIngredients />
       <FromTheGram />
       {/* <Menu /> */}
