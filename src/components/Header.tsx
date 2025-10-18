@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 // Import static PDF to be served by Vite
 import menuPdfUrl from "@/assets/Menu.pdf";
@@ -33,7 +33,9 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-    const goToMenuPage = () => {
+  const navigate = useNavigate();
+
+  const goToMenuPage = () => {
     navigate("/menu");
     setIsMenuOpen(false);
   };
@@ -50,20 +52,29 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <img 
-            src="/lovable-uploads/Icon-X.png" 
-            alt="X-Square Burgers Logo" 
-            className={cn(
-              "w-auto transition-all duration-300 ease-in-out",
-              scrolled ? "h-10" : "h-12"
-            )}
-          />
+          <button
+            onClick={() => {
+              navigate("/");
+              setIsMenuOpen(false);
+            }}
+            aria-label="Home"
+            className="p-0 m-0"
+          >
+            <img
+              src="/lovable-uploads/Icon-X.png"
+              alt="X-Square Burgers Logo"
+              className={cn(
+                "w-auto transition-all duration-300 ease-in-out",
+                scrolled ? "h-10" : "h-12"
+              )}
+            />
+          </button>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           <button
-            onClick={() => scrollToSection("menu")}
+            onClick={() => goToMenuPage()}
             className={cn(" hover:text-primary transition-colors",
               scrolled ? "text-foreground" : "text-background")}
           >
@@ -102,7 +113,7 @@ const Header = () => {
         <div className="md:hidden bg-background border-t border-border">
           <nav className="container mx-auto px-4 py-4 space-y-4">
             <button
-              onClick={() => scrollToSection("menu")}
+              onClick={() => goToMenuPage()}
               className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               Menu
