@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-burger.jpg";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const Magnetic = ({ children }: { children: React.ReactNode }) => {
@@ -45,11 +46,11 @@ const Hero = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const bgMouseRef = useRef<HTMLDivElement | null>(null);
   const fgMouseRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
+
   const scrollToMenu = () => {
-    const element = document.getElementById("menu");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    // Navigate to the /menu page instead of scrolling when on the home page
+    navigate("/menu");
   };
 
   const openOnlineOrdering = () => {
