@@ -4,6 +4,7 @@ import WhoWeAre from "@/components/WhoWeAre";
 import Vision from "@/components/Vision";
 import OurIngredients from "@/components/OurIngredients";
 import Menu from "@/components/Menu";
+import FromTheGram from "@/components/FromTheGram";
 import LocationsMap from "@/components/LocationsMap";
 import Footer from "@/components/Footer";
 
@@ -15,7 +16,8 @@ const Index = () => {
       <WhoWeAre />
       <Vision />
       <OurIngredients />
-      <Menu />
+      <FromTheGram />
+      {/* <Menu /> */}
       <LocationsMap />
       <Footer />
     </div>

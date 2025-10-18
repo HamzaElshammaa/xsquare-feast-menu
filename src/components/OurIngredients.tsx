@@ -43,7 +43,7 @@ const OurIngredients = () => {
   // We use different transform ranges for mobile and desktop for a better experience.
   const x = useTransform(scrollYProgress, 
     [0.1, 0.95], 
-    isMobile ? ["5%", "-200%"] : ["10%", "-165%"]
+    isMobile ? ["5%", "-200%"] : ["50%", "-105%"]
   );
 
   return (
