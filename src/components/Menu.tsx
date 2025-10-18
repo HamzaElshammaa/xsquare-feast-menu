@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import MenuItemModal from "@/components/MenuItemModal";
 import classicBurger from "@/assets/classic-burger.jpg";
-import bbqBurger from "@/assets/bbq-burger.jpg";
+import DutchBurger from "@/assets/dutch-burger.png";
 import chickenBurger from "@/assets/chicken-burger.jpg";
 import classicHotDog from "@/assets/classic-hotdog.png";
 import XDog from "@/assets/x-dog.png";
@@ -28,7 +28,7 @@ const beefBurgers = [
   { name: "CLASSIC BURGER", price: 180, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with American Cheese, Pickles, Onions, Ketchup, Mustard.", image: classicBurger },
   { name: "X - BURGER", price: 190, description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun topped with Cheese Sauce, American Cheese, Pickles, X Sauce.", image: XBurger },
   { name: "X - BREAKER", price: 190, description: "Two Onions Mustard Smashed beef burger patties, served on Toasted Potato Bun, Eggs, American Cheese, Pickles, X Sauce.", image: XBreaker },
-  { name: "DUTCH BURGER", price: 190, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with Dutch Cheese, Grilled Mushroom, Mayo.", image: "/lovable-uploads/dutch-burger.jpg" },
+  { name: "DUTCH BURGER", price: 190, description: "Two Smashed beef burger patties, served on Toasted Potato Bun topped with Dutch Cheese, Grilled Mushroom, Mayo.", image: DutchBurger },
 ];
 
 const chickenSandwiches = [

@@ -1,40 +1,46 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
+import IGDutch from "@/assets/IGDutch.png";
+import IGFries from "@/assets/IGFries.png";
+import IGXFries from "@/assets/IGXFries.jpeg";
+import IGStrawberryMojito from "@/assets/IGStrawberryMojito.png";
+import IGHotDog from "@/assets/IGHotDog.png";
+import IGLemonMint from "@/assets/IGLemonMint.png";
 
 // TODO: Replace these placeholders with real data from your Instagram
 const posts = [
   {
-    image: "/src/assets/IGDutch.png",
+    image: IGDutch,
     user: "@burgerlover",
     caption: "The Dutch Burger is insane! 🔥",
     link: "https://www.instagram.com/",
   },
   {
-    image: "/src/assets/IGFries.png",
+    image: IGFries,
     user: "@cairofoodie",
     caption: "Best Fries  in New Cairo.",
     link: "https://www.instagram.com/",
   },
   {
-    image: "/src/assets/IGXFries.jpeg",
+    image: IGXFries,
     user: "@sarahs.eats",
     caption: "Literally obsessed with the X-Fries.",
     link: "https://www.instagram.com/",
   },
   {
-    image: "/src/assets/IGStrawberryMojito.png",
+    image: IGStrawberryMojito,
     user: "@ahmedexplores",
     caption: "Cooling down with a Strawberry Mojito.",
     link: "https://www.instagram.com/",
   },
   {
-    image: "/src/assets/IGHotDog.png",
+    image: IGHotDog,
     user: "@thefoodiesquad",
     caption: "Lunch sorted with X-Square!",
     link: "https://www.instagram.com/",
   },
   {
-    image: "/src/assets/IGLemonMint.png",
+    image: IGLemonMint,
     user: "@dessertdiary",
     caption: "The Lemon mint mojito is a must-try!",
     link: "https://www.instagram.com/",

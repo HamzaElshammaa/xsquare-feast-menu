@@ -59,7 +59,8 @@ import { motion } from "framer-motion";
 // It's highly recommended to replace this with a high-quality, authentic video 
 // of your team, your food truck in action, or the cooking process.
 // This video would go in your `public/videos` folder.
-const videoSrc = "src/assets/XsquareLoop.mp4";
+import videoSrc from "@/assets/XsquareLoop.mp4";
+
 
 const WhoWeAre = () => {
   return (

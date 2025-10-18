@@ -1,32 +1,37 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import premiumBeefImg from "@/assets/premiumBeef.png";
+import artisanBunsImg from "@/assets/artisanBuns.png";
+import xSauceImg from "@/assets/XSauce.png";
+import freshProduceImg from "@/assets/freshProduce.png";
+import meltedCheeseImg from "@/assets/meltedCheese.png";
 // TODO: Replace these placeholders with your actual high-quality ingredient photos
 const ingredients = [
   {
     name: "Premium Beef",
     description: "Locally sourced, 100% pure beef, smashed to perfection for a crispy crust and juicy center.",
-    image: "/src/assets/premiumBeef.png",
+    image: premiumBeefImg,
   },
   {
     name: "Artisan Buns",
     description: "Freshly baked potato buns, toasted with butter for the perfect combination of soft and crisp.",
-    image: "/src/assets/artisanBuns.png",
+    image: artisanBunsImg,
   },
   {
     name: "Signature X-Sauce",
     description: "Our secret blend of spices and creamy goodness that gives every X-Burger its unique, addictive flavor.",
-    image: "/src/assets/XSauce.png",
+    image: xSauceImg,
   },
   {
     name: "Fresh Produce",
     description: "Crisp lettuce, ripe tomatoes, and sharp onions delivered daily to ensure the freshest taste.",
-    image: "/src/assets/freshProduce.png",
+    image: freshProduceImg,
   },
    {
     name: "Melted Cheeses",
     description: "From classic American to rich Dutch cheese, perfectly melted to create an irresistible pull.",
-    image: "/src/assets/meltedCheese.png",
+    image: meltedCheeseImg,
   },
 ];
 
