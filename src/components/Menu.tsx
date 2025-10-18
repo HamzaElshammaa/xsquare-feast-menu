@@ -9,7 +9,7 @@ import bbqBurger from "@/assets/bbq-burger.jpg";
 import chickenBurger from "@/assets/chicken-burger.jpg";
 import dutchBurger from "@/assets/dutch-burger.png";
 import classicHotDog from "@/assets/classic-hotdog.png";
-import XDog from "@/assets/x-dog.png";
+import XDog from "@/assets/X-Dog.png";
 import XBurger from "@/assets/XBurger.png";
 import buffaloChicken from "@/assets/buffalochicken.png";
 import lotusMilkshake from "@/assets/LotusMilkshake.png";
