@@ -30,6 +30,11 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+    const goToMenuPage = () => {
+    navigate("/menu");
+    setIsMenuOpen(false);
+  };
+
   return (
     <header 
       className={cn(
