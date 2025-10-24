@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-burger.jpg";
+/* import heroImage from "@/assets/hero-burger.jpg"; */
+import heroImage from "@/assets/SmashBurger1.jpg";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useMotionValue, useSpring } from "framer-motion";
