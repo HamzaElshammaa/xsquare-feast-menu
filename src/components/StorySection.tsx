@@ -48,7 +48,7 @@ const VisionContent = () => {
         onMouseLeave={handleMouseLeave}
       >
         {/* Transparent overlay for the content */}
-        <div className="absolute inset-0 bg-secondary/40 backdrop-blur-lg" />
+        <div className="absolute inset-0 bg-secondary/10 backdrop-blur-lg" />
 
          {/* Mouse-tracking spotlight effect */}
          <motion.div
@@ -88,10 +88,11 @@ const WhoWeAreContent = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32 px-4">
        {/* Transparent overlay for the content */}
-       <div className="absolute inset-0 bg-background/70 backdrop-blur-lg" />
+       {/* <div className="absolute inset-0 bg-secondary/10 backdrop-blur-lg" /> */}
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div className="mx-auto max-w-6xl rounded-2xl bg-white/70 backdrop-blur-sm border border-white/0 p-6">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <motion.div
             className="relative rounded-lg overflow-hidden shadow-2xl aspect-video md:aspect-[4/5]"
             initial={{ opacity: 0, x: -50 }}
@@ -129,6 +130,7 @@ const WhoWeAreContent = () => {
               </p>
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
     </div>
