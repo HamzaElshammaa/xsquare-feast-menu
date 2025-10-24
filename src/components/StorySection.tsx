@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
-import whoWeAreBg from "../assets/who-we-are-bg.jpg";
+/* import whoWeAreBg from "../assets/who-we-are-bg.jpg"; */
+import whoWeAreBg from "../assets/SmashBurger6.jpg";
 import videoSrc from "../assets/XsquareLoop.mp4";
 
 // This is the "Vision" part, self-contained to manage its own animations
