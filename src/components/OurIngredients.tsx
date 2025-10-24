@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
-import premiumBeefImg from "@/assets/premiumBeef.png";
-import artisanBunsImg from "@/assets/artisanBuns.png";
+/* import premiumBeefImg from "@/assets/premiumBeef.png"; */
+import premiumBeefImg from "@/assets/SmashBurger5.jpg";
+/* import artisanBunsImg from "@/assets/artisanBuns.png"; */
+import artisanBunsImg from "@/assets/PotatoBun1.jpg";
 import xSauceImg from "@/assets/XSauce.png";
 import freshProduceImg from "@/assets/freshProduce.png";
 import meltedCheeseImg from "@/assets/meltedCheese.png";

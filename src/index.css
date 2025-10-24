@@ -169,3 +169,11 @@ All colors MUST be HSL.
     opacity: 1;
   }
 }
+
+/* Full HD desktop: reduce base font size so rem-based UI scales (~80%) without layout glitches */
+@media (min-width: 900px) {
+  html {
+    /* 16px -> 14px is ~87.5%; if you want tighter, use 13px (~81.25%) */
+    font-size: 12px;
+  }
+}
