@@ -96,7 +96,7 @@ const Hero = () => {
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div ref={bgMouseRef} className="absolute inset-0 will-change-transform">
+      <div ref={bgMouseRef} className="absolute -inset-4 will-change-transform">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
