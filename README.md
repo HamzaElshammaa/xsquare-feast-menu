@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+<div align="center">
 
-## Project info
+# Xsquare Feast Menu 🍔✨
 
-**URL**: https://lovable.dev/projects/e03edcbb-4b1d-4bdc-b5b8-1b5c4af5bc97
+### **Interactive Digital Menu & Brand Experience for Xsquare Artisanal Food Truck**
 
-## How can I edit this code?
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-Build-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-Components-000000?style=for-the-badge)](https://ui.shadcn.com/)
 
-There are several ways of editing your application.
+*A mobile-first, appetite-driven digital menu and brand showcase crafted for fast QR-code ordering, instant category filtering, and fluid micro-interactions.*
 
-**Use Lovable**
+</div>
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e03edcbb-4b1d-4bdc-b5b8-1b5c4af5bc97) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Overview & Features
 
-**Use your preferred IDE**
+**Xsquare Feast Menu** transforms a traditional static PDF food-truck menu into an interactive web experience optimized for on-the-go mobile customers:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- ⚡ **Sub-Second Mobile Load:** Built on Vite + React with optimized assets and zero layout shift for customers scanning QR codes on cellular connections.
+- 🍟 **Interactive Category Navigation:** Sticky category pills, dietary & spice tags, combo builders, and instant item search.
+- 🎨 **Custom Brand Identity:** Tailored typography, warm street-food color palette, and responsive item cards with high-resolution photography.
+- 🔄 **Automated Menu Extraction Utility:** Includes a custom script (`scripts/extract-menu.cjs`) to parse structured menu items and pricing from source PDFs.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📂 Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```text
+├── public/                 # Custom brand fonts & static imagery
+├── scripts/
+│   └── extract-menu.cjs    # PDF-to-JSON menu extraction utility
+├── src/
+│   ├── assets/             # Dish photography & brand illustrations
+│   ├── components/         # Reusable UI primitives (shadcn/ui) & menu cards
+│   ├── hooks/              # Mobile viewport & scroll-spy hooks
+│   ├── lib/                # Utility helpers
+│   └── pages/              # Main interactive menu & brand story views
+└── tailwind.config.ts      # Brand color tokens & animation keyframes
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Getting Started
 
-**Use GitHub Codespaces**
+```bash
+# 1. Install dependencies
+npm install
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# 2. Start local development server
+npm run dev
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e03edcbb-4b1d-4bdc-b5b8-1b5c4af5bc97) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# 3. Build for production
+npm run build
+```
